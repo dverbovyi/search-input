@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Petro Principal",
+    "grade": "T4",
+    "position": "Principal UI Engineer",
+    "skills": [
+      {
+        "name": "javascript",
+        "level": 5
+      },
+      {
+          "name": "gulp",
+          "level": 4
+      },
+      {
+        "name": "html",
+        "level": 4
+      },
+      {
+        "name": "css3",
+        "level": 3
+      },
+      {
+        "name": "webpack",
+        "level": 4
+      },
+      {
+          "name": "es6",
+          "level": 5
+      },
+      {
+          "name": "typescript",
+          "level": 5
+      }
+    ],
+    "location": "Lviv"
+  },
+  {
+    "name": "Oleh Middle",
+    "grade": "T2",
+    "position": "Staff UI Engineer",
+    "skills": [
+      {
+        "name": "javascript",
+        "level": 4
+      },
+      {
+          "name": "gulp",
+          "level": 3
+      },
+      {
+        "name": "html",
+        "level": 5
+      },
+      {
+        "name": "css3",
+        "level": 4
+      },
+      {
+        "name": "react",
+        "level": 4
+      },
+      {
+          "name": "es6",
+          "level": 4
+      },
+      {
+          "name": "typescript",
+          "level": 4
+      }
+    ],
+    "location": "Kharkiv"
+  },
+  {
+    "name": "Roman Preprincipal",
+    "grade": "T4",
+    "position": "Principal UI Engineer",
+    "skills": [
+      {
+        "name": "javascript",
+        "level": 4
+      },
+      {
+          "name": "grunt",
+          "level": 3
+      },
+      {
+        "name": "html5",
+        "level": 5
+      },
+      {
+        "name": "css3",
+        "level": 4
+      },
+      {
+        "name": "angular",
+        "level": 4
+      },
+      {
+          "name": "es6",
+          "level": 4
+      },
+      {
+          "name": "typescript",
+          "level": 4
+      }
+    ],
+    "location": "Krakow"
+  }
+]

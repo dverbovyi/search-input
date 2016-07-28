@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="searchStaff">
+
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.js"></script>
+
+    <script src="./build/app.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.min.css">
+  </head>
+
+  <body ng-controller="ctrl">
+    <tags-input
+      ng-model="selected"
+      display-property="value"
+      on-tag-adding="addingTag($tag)"
+      on-tag-removing="removingTag($tag)"
+      on-tag-added="updateSearchQuery()"
+      on-tag-removed="updateSearchQuery()"
+      add-from-autocomplete-only="true"
+      replace-spaces-with-dashes="false"
+
+    >
+      <auto-complete
+        source="autocomplete($query)"
+        display-property="value"
+        min-length="1"
+        template="autocomplete-tpl"
+        load-on-empty="true"
+        load-on-focus="true"
+      ></auto-complete>
+    </tags-input>
+    <script type="text/ng-template" id="autocomplete-tpl">
+      <b>{{data.name}}</b>:
+      <span ng-bind-html="$highlight($getDisplayText())"></span>
+    </script>
+    <h1>Matched users:</h1>
+    <ul>
+        <li ng-repeat="user in filteredUsers track by $index">
+          {{user.name}}
+        </li>
+    </ul>
+  </body>
+
+</html>

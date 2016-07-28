@@ -1,0 +1,6 @@
+{
+  "skills": ["javascript", "gulp", "grunt", "angularjs", "typescript"],
+  "location": ["Lviv", "Kharkiv", "Krakow", "Menlo Park"],
+  "grade": ["T1", "T2", "T3", "T4", "D1", "D2"],
+  "position": ["Principal UI Engineer", "Staff UI Engineer", "Senior Developer"]
+}
