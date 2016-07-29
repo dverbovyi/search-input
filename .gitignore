@@ -1,2 +1,8 @@
+#Search-input
+
 /node_modules
-/build
+app/
+.DS_Store
+.babelrc
+gulpfile.js
+
