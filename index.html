@@ -10,20 +10,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.1.1/ng-tags-input.min.css">
   </head>
 
-  <body ng-controller="ctrl">
+  <body ng-controller="AppController as vm">
     <tags-input
-      ng-model="selected"
+      ng-model="vm.selected"
       display-property="value"
-      on-tag-adding="addingTag($tag)"
-      on-tag-removing="removingTag($tag)"
-      on-tag-added="updateSearchQuery()"
-      on-tag-removed="updateSearchQuery()"
+      on-tag-adding="vm.addTag($tag)"
+      on-tag-removing="vm.removeTag($tag)"
+      on-tag-added="vm.updateSearchQuery()"
+      on-tag-removed="vm.updateSearchQuery()"
       add-from-autocomplete-only="true"
       replace-spaces-with-dashes="false"
-
+      min-length="1"
     >
       <auto-complete
-        source="autocomplete($query)"
+        source="vm.autocomplete($query)"
         display-property="value"
         min-length="1"
         template="autocomplete-tpl"
@@ -37,8 +37,8 @@
     </script>
     <h1>Matched users:</h1>
     <ul>
-        <li ng-repeat="user in filteredUsers track by $index">
-          {{user.name}}
+        <li ng-repeat="employee in vm.matchedPeople track by employee.name">
+          {{employee.name}}
         </li>
     </ul>
   </body>
