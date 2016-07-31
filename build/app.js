@@ -46,15 +46,12 @@ var AppController = function () {
                         });
                     });
                 }
-
-                console.log(_this.keywords);
             });
         }
     }, {
         key: 'addTag',
         value: function addTag(tag) {
             var entity = this.tagsMap[tag.name];
-            console.log(tag);
 
             if (!entity) entity = this.tagsMap[tag.name] = [];
 
@@ -95,8 +92,6 @@ var AppController = function () {
         value: function updateSearchQuery() {
             var _employees = angular.copy(this.employees);
             this.matchedPeople = _employees.filter(this.employeeFilter.bind(this));
-
-            console.log(this.matchedPeople);
         }
     }, {
         key: 'autocomplete',
