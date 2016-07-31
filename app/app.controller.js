@@ -30,14 +30,11 @@ class AppController {
                         });
                     });
                 }
-
-                console.log(this.keywords)
             })
     }
 
     addTag(tag) {
         let entity = this.tagsMap[tag.name];
-        console.log(tag)
 
         if (!entity)
             entity = this.tagsMap[tag.name] = [];
@@ -76,8 +73,6 @@ class AppController {
     updateSearchQuery() {
         let _employees = angular.copy(this.employees);
         this.matchedPeople = _employees.filter(this.employeeFilter.bind(this));
-
-        console.log(this.matchedPeople);
     }
 
     autocomplete(query) {
