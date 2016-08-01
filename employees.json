@@ -1,0 +1,174 @@
+[
+  {
+    "name": "Petro Ivanov",
+    "grade": "T2",
+    "position": "Middle UI Engineer",
+    "skills": [
+      {
+        "name": "javascript",
+        "level": 5
+      }
+    ],
+    "location": "Lviv"
+  },
+  {
+    "name": "Ivan Petrov",
+    "grade": "T2",
+    "position": "Middle UI Engineer",
+    "skills": [
+      {
+        "name": "javascript",
+        "level": 3
+      },
+      {
+        "name": "html",
+        "level": 3
+      },
+      {
+        "name": "css",
+        "level": 3
+      }
+    ],
+    "location": "Lviv"
+  },
+  {
+    "name": "Oleh Sokolov",
+    "grade": "T1",
+    "position": "Trainee UI Engineer",
+    "skills": [
+      {
+        "name": "html",
+        "level": 5
+      },
+      {
+        "name": "css",
+        "level": 4
+      }
+    ],
+    "location": "Kharkiv"
+  },
+  {
+    "name": "Oleh Alexeev",
+    "grade": "D2",
+    "position": "Project Manager",
+    "skills": [
+      {
+        "name": "budget",
+        "level": 5
+      },
+      {
+        "name": "agile",
+        "level": 4
+      },
+      {
+        "name": "time",
+        "level": 4
+      },
+      {
+        "name": "risk",
+        "level": 3
+      }
+    ],
+    "location": "Kharkiv"
+  },
+  {
+    "name": "Roman Ostap",
+    "grade": "T3",
+    "position": "Senior UI Engineer",
+    "skills": [
+      {
+        "name": "javascript",
+        "level": 4
+      },
+      {
+          "name": "grunt",
+          "level": 3
+      },
+      {
+        "name": "html5",
+        "level": 5
+      },
+      {
+        "name": "css",
+        "level": 4
+      },
+      {
+        "name": "css3",
+        "level": 4
+      },
+      {
+        "name": "angular",
+        "level": 4
+      },
+      {
+          "name": "es6",
+          "level": 4
+      },
+      {
+          "name": "typescript",
+          "level": 4
+      }
+    ],
+    "location": "Krakow"
+  },
+  {
+    "name": "Ostap Bender",
+    "grade": "T4",
+    "position": "Principal UI Engineer",
+    "skills": [
+      {
+        "name": "javascript",
+        "level": 4
+      },
+      {
+          "name": "grunt",
+          "level": 3
+      },
+      {
+          "name": "gulp",
+          "level": 3
+      },
+      {
+        "name": "html",
+        "level": 5
+      },
+      {
+        "name": "html5",
+        "level": 5
+      },
+      {
+        "name": "css3",
+        "level": 4
+      },
+      {
+        "name": "css",
+        "level": 4
+      },
+      {
+        "name": "angular",
+        "level": 4
+      },
+      {
+          "name": "es6",
+          "level": 4
+      },
+      {
+          "name": "typescript",
+          "level": 4
+      },
+      {
+        "name": "java",
+        "level": 5
+      },
+      {
+        "name": "nodejs",
+        "level": 5
+      },
+      {
+        "name": "agile",
+        "level": 3
+      }
+    ],
+    "location": "Kharkiv"
+  }
+]

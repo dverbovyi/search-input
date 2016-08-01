@@ -4,7 +4,7 @@ class SearchService {
     }
 
     getEmployees() {
-        return this.$http.get('./users.json');
+        return this.$http.get('./employees.json');
     }
 
     getKeywords() {
