@@ -10,17 +10,17 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var AppController = function () {
-    function AppController($http, $filter, SearchService) {
+    function AppController($http, $filter, $timeout, SearchService) {
         _classCallCheck(this, AppController);
 
         this.$http = $http;
         this.$filter = $filter;
+        this.$timeout = $timeout;
         this.searchService = SearchService;
         this.selected = [];
-        this.employees = [];
         this.keywords = [];
-        this.matchedPeople = [];
         this.tagsMap = {};
+        this.showTags = false;
 
         this.initialize();
     }
@@ -35,11 +35,11 @@ var AppController = function () {
             });
 
             this.searchService.getKeywords().then(function (response) {
-                var result = response.data;
-                for (var key in result) {
-                    if (!result.hasOwnProperty(key)) continue;
+                _this.fields = response.data;
+                for (var key in _this.fields) {
+                    if (!_this.fields.hasOwnProperty(key)) continue;
 
-                    result[key].forEach(function (element) {
+                    _this.fields[key].forEach(function (element) {
                         _this.keywords.push({
                             name: key,
                             value: element
@@ -64,6 +64,8 @@ var AppController = function () {
 
             if (index + 1) {
                 this.tagsMap[tag.name].splice(index, 1);
+
+                if (!this.tagsMap[tag.name].length) delete this.tagsMap[tag.name];
             }
         }
     }, {
@@ -83,6 +85,8 @@ var AppController = function () {
                     value = this.tagsMap[key];
 
                 hasMatch = this.$filter(filterName)(value, employee);
+
+                if (!hasMatch) break;
             }
 
             return hasMatch;
@@ -91,6 +95,7 @@ var AppController = function () {
         key: 'updateSearchQuery',
         value: function updateSearchQuery() {
             var _employees = angular.copy(this.employees);
+
             this.matchedPeople = _employees.filter(this.employeeFilter.bind(this));
         }
     }, {
@@ -106,12 +111,35 @@ var AppController = function () {
                 return keyword.value.toLowerCase().indexOf(query.toLowerCase()) + 1;
             });
         }
+    }, {
+        key: 'displayTags',
+        value: function displayTags() {
+            this.showTags = !this.showTags;
+        }
+    }, {
+        key: 'isSupportedFilter',
+        value: function isSupportedFilter(filterName) {
+            var support = true;
+
+            try {
+                this.$filter(filterName);
+            } catch (e) {
+                support = false;
+            }
+
+            return support;
+        }
+    }, {
+        key: 'isResultNotFound',
+        value: function isResultNotFound() {
+            return Object.keys(this.tagsMap).length && this.matchedPeople && !this.matchedPeople.length;
+        }
     }]);
 
     return AppController;
 }();
 
-AppController.$inject = ['$http', '$filter', 'SearchService'];
+AppController.$inject = ['$http', '$filter', '$timeout', 'SearchService'];
 
 exports.default = AppController;
 
@@ -176,7 +204,7 @@ function applyFilters(module) {
 }
 
 function testTags(tags, compare) {
-    var test = true;
+    var test = false;
 
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
@@ -267,7 +295,7 @@ var SearchService = function () {
     _createClass(SearchService, [{
         key: 'getEmployees',
         value: function getEmployees() {
-            return this.$http.get('./users.json');
+            return this.$http.get('./employees.json');
         }
     }, {
         key: 'getKeywords',

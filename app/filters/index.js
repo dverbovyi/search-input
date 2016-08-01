@@ -10,7 +10,7 @@ export default function applyFilters(module) {
 }
 
 export function testTags(tags, compare) {
-    let test = true;
+    let test = false;
 
     for (let value of tags) {
         test = compare(value);

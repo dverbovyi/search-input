@@ -1,13 +1,13 @@
 class AppController {
-    constructor($http, $filter, SearchService) {
+    constructor($http, $filter, $timeout, SearchService) {
         this.$http = $http;
         this.$filter = $filter;
+        this.$timeout = $timeout;
         this.searchService = SearchService;
         this.selected = [];
-        this.employees = [];
         this.keywords = [];
-        this.matchedPeople = [];
         this.tagsMap = {};
+        this.showTags = false;
 
         this.initialize();
     }
@@ -18,12 +18,12 @@ class AppController {
 
         this.searchService.getKeywords()
             .then(response => {
-                let result = response.data;
-                for (var key in result) {
-                    if (!result.hasOwnProperty(key))
+                this.fields = response.data;
+                for (var key in this.fields) {
+                    if (!this.fields.hasOwnProperty(key))
                         continue;
 
-                    result[key].forEach(element => {
+                    this.fields[key].forEach(element => {
                         this.keywords.push({
                             name: key,
                             value: element
@@ -47,6 +47,9 @@ class AppController {
 
         if (index + 1) {
             this.tagsMap[tag.name].splice(index, 1);
+
+            if(!this.tagsMap[tag.name].length)
+                delete this.tagsMap[tag.name];
         }
     }
 
@@ -64,7 +67,10 @@ class AppController {
             let filterName = key.toLowerCase(),
                 value = this.tagsMap[key];
 
-            hasMatch = this.$filter(filterName)(value, employee);     
+            hasMatch = this.$filter(filterName)(value, employee);
+
+            if(!hasMatch)
+                break;     
         }
 
         return hasMatch;
@@ -72,6 +78,7 @@ class AppController {
 
     updateSearchQuery() {
         let _employees = angular.copy(this.employees);
+
         this.matchedPeople = _employees.filter(this.employeeFilter.bind(this));
     }
 
@@ -86,8 +93,28 @@ class AppController {
             return keyword.value.toLowerCase().indexOf(query.toLowerCase()) + 1;
         });
     }
+
+    displayTags(){
+        this.showTags = !this.showTags;
+    }
+
+    isSupportedFilter(filterName){
+        let support = true;
+
+        try {
+            this.$filter(filterName);
+        } catch(e) {
+            support = false;
+        }
+
+        return support;
+    }
+
+    isResultNotFound(){
+        return Object.keys(this.tagsMap).length && this.matchedPeople && !this.matchedPeople.length;
+    }
 }
 
-AppController.$inject = ['$http', '$filter', 'SearchService'];
+AppController.$inject = ['$http', '$filter', '$timeout', 'SearchService'];
 
 export default AppController;

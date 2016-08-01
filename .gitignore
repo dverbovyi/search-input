@@ -1,8 +1,8 @@
 #Search-input
 
 /node_modules
-app/
+/app
+package.json
 .DS_Store
 .babelrc
 gulpfile.js
-
