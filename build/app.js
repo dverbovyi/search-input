@@ -11,6 +11,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var AppController = function () {
     function AppController($http, $filter, $timeout, SearchService) {
+        var _this = this;
+
         _classCallCheck(this, AppController);
 
         this.$http = $http;
@@ -21,6 +23,20 @@ var AppController = function () {
         this.keywords = [];
         this.tagsMap = {};
         this.showTags = false;
+        this.anySkills = false;
+
+        this.slider = {
+            value: 1,
+            options: {
+                showTicksValues: true,
+                floor: 1,
+                ceil: 5,
+                step: 1,
+                onChange: function onChange() {
+                    _this.updateSearchQuery();
+                }
+            }
+        };
 
         this.initialize();
     }
@@ -28,19 +44,19 @@ var AppController = function () {
     _createClass(AppController, [{
         key: 'initialize',
         value: function initialize() {
-            var _this = this;
+            var _this2 = this;
 
             this.searchService.getEmployees().then(function (result) {
-                return _this.employees = result.data;
+                return _this2.employees = result.data;
             });
 
             this.searchService.getKeywords().then(function (response) {
-                _this.fields = response.data;
-                for (var key in _this.fields) {
-                    if (!_this.fields.hasOwnProperty(key)) continue;
+                _this2.fields = response.data;
+                for (var key in _this2.fields) {
+                    if (!_this2.fields.hasOwnProperty(key)) continue;
 
-                    _this.fields[key].forEach(function (element) {
-                        _this.keywords.push({
+                    _this2.fields[key].forEach(function (element) {
+                        _this2.keywords.push({
                             name: key,
                             value: element
                         });
@@ -51,26 +67,41 @@ var AppController = function () {
     }, {
         key: 'addTag',
         value: function addTag(tag) {
-            var entity = this.tagsMap[tag.name];
+            var type = tag.name === 'skills' ? {} : [];
+            this.tagsMap[tag.name] = this.tagsMap[tag.name] || type;
 
-            if (!entity) entity = this.tagsMap[tag.name] = [];
+            if (tag.name === 'skills') {
+                this.tagsMap[tag.name][tag.value] = 1;
+            } else {
+                this.tagsMap[tag.name].push(tag.value);
+            }
 
-            this.tagsMap[tag.name].push(tag.value);
+            this.anySkills = Object.keys(this.tagsMap['skills']).length !== 0;
         }
     }, {
         key: 'removeTag',
         value: function removeTag(tag) {
-            var index = this.tagsMap[tag.name].indexOf(tag.value);
+            if (tag.name === "skills") {
+                delete this.tagsMap[tag.name][tag.value];
+                this.anySkills = Object.keys(this.tagsMap[tag.name]).length !== 0;
 
-            if (index == -1) return;
+                if (!Object.keys(this.tagsMap[tag.name]).length) {
+                    delete this.tagsMap[tag.name];
+                }
+            } else {
+                var index = this.tagsMap[tag.name].indexOf(tag.value);
 
-            this.tagsMap[tag.name].splice(index, 1);
+                if (index == -1) return;
 
-            if (!this.tagsMap[tag.name].length) delete this.tagsMap[tag.name];
+                this.tagsMap[tag.name].splice(index, 1);
+
+                if (!this.tagsMap[tag.name].length) delete this.tagsMap[tag.name];
+            }
         }
     }, {
         key: 'employeeFilter',
         value: function employeeFilter(employee) {
+            console.log(arguments);
             var hasMatch = false;
 
             for (var key in this.tagsMap) {
@@ -155,7 +186,7 @@ var _filters2 = _interopRequireDefault(_filters);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _module = angular.module("searchStaff", ['ngTagsInput']);
+var _module = angular.module("searchStaff", ['ngTagsInput', 'rzModule']);
 
 _module.controller('AppController', _app2.default).service('SearchService', _search2.default);
 
@@ -252,40 +283,27 @@ function skillsFilter() {
     return function (skills, target) {
         var test = false;
 
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
+        var _loop = function _loop(skillName) {
+            if (!skills.hasOwnProperty(skillName)) return "continue";
+            var skillLevel = skills[skillName];
+            test = !!target.skills.find(function (skill) {
+                return skill.name === skillName && skill.level >= skillLevel;
+            });
 
-        try {
-            var _loop = function _loop() {
-                var value = _step.value;
+            if (!test) return {
+                    v: false
+                };
+        };
 
-                test = !!target.skills.find(function (skill) {
-                    return skill.name === value; //TODO: level
-                });
+        for (var skillName in skills) {
+            var _ret = _loop(skillName);
 
-                if (!test) return {
-                        v: false
-                    };
-            };
+            switch (_ret) {
+                case "continue":
+                    continue;
 
-            for (var _iterator = skills[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                var _ret = _loop();
-
-                if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
-            }
-        } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-        } finally {
-            try {
-                if (!_iteratorNormalCompletion && _iterator.return) {
-                    _iterator.return();
-                }
-            } finally {
-                if (_didIteratorError) {
-                    throw _iteratorError;
-                }
+                default:
+                    if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
             }
         }
 
