@@ -62,16 +62,11 @@ var AppController = function () {
         value: function removeTag(tag) {
             var index = this.tagsMap[tag.name].indexOf(tag.value);
 
-            if (index + 1) {
-                this.tagsMap[tag.name].splice(index, 1);
+            if (index == -1) return;
 
-                if (!this.tagsMap[tag.name].length) delete this.tagsMap[tag.name];
-            }
-        }
-    }, {
-        key: 'applyFilter',
-        value: function applyFilter(name, context) {
-            return this.$filter(name.toLowerCase)(context.source, context.target);
+            this.tagsMap[tag.name].splice(index, 1);
+
+            if (!this.tagsMap[tag.name].length) delete this.tagsMap[tag.name];
         }
     }, {
         key: 'employeeFilter',
@@ -178,9 +173,7 @@ var _index = require('./index');
 
 function gradeFilter() {
     return function (grades, target) {
-        return (0, _index.testTags)(grades, function (value) {
-            return target.grade.toUpperCase() === value.toUpperCase();
-        });
+        return !!(grades.indexOf(target.grade) + 1);
     };
 }
 
@@ -191,7 +184,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = applyFilters;
-exports.testTags = testTags;
 
 var _skills = require('./skills');
 
@@ -201,39 +193,6 @@ var _grade = require('./grade');
 
 function applyFilters(module) {
     module.filter('skills', _skills.skillsFilter).filter('location', _location.locationFilter).filter('grade', _grade.gradeFilter);
-}
-
-function testTags(tags, compare) {
-    var test = false;
-
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-        for (var _iterator = tags[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var value = _step.value;
-
-            test = compare(value);
-
-            if (!test) return false;
-        }
-    } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-                _iterator.return();
-            }
-        } finally {
-            if (_didIteratorError) {
-                throw _iteratorError;
-            }
-        }
-    }
-
-    return test;
 }
 
 },{"./grade":3,"./location":5,"./skills":6}],5:[function(require,module,exports){
@@ -248,33 +207,66 @@ var _index = require('./index');
 
 function locationFilter() {
     return function (locations, target) {
-        return (0, _index.testTags)(locations, function (value) {
-            return target.location.toUpperCase() === value.toUpperCase();
-        });
+        return !!(locations.indexOf(target.location) + 1);
     };
 }
 
 },{"./index":4}],6:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 exports.skillsFilter = skillsFilter;
-
-var _index = require('./index');
-
 function skillsFilter() {
     return function (skills, target) {
-        return (0, _index.testTags)(skills, function (value) {
-            return !!target.skills.find(function (skill) {
-                return skill.name === value;
-            });
-        });
+        var test = false;
+
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            var _loop = function _loop() {
+                var value = _step.value;
+
+                test = !!target.skills.find(function (skill) {
+                    return skill.name === value; //TODO: level
+                });
+
+                if (!test) return {
+                        v: false
+                    };
+            };
+
+            for (var _iterator = skills[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var _ret = _loop();
+
+                if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+
+        return test;
     };
 }
 
-},{"./index":4}],7:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
