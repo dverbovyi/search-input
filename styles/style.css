@@ -117,3 +117,7 @@ tags-input .tags .tag-item {
     /*overflow-y: auto;*/
     /*height: 554px;*/
 }
+
+.rzslider .rz-pointer:focus {
+  outline: 0;
+}

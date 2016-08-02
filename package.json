@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "angular": "^1.5.8",
+    "angularjs-slider": "^5.4.0",
     "bootstrap": "^4.0.0-alpha.2",
     "ng-tags-input": "^3.1.1"
   }
