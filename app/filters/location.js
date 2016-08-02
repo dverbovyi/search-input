@@ -1,7 +1,5 @@
-import { testTags } from './index';
+import { getMatchPropertyFilter, FILTER_NAMES } from './index';
 
 export function locationFilter() {
-    return (locations, target) => {
-        return !!(locations.indexOf(target.location) + 1);
-    }
+    return getMatchPropertyFilter(FILTER_NAMES.LOCATION);
 }

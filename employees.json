@@ -2,7 +2,7 @@
   {
     "name": "Petro Ivanov",
     "grade": "T2",
-    "position": "Middle UI Engineer",
+    "position": "Staff UI Engineer",
     "skills": [
       {
         "name": "javascript",
@@ -14,7 +14,7 @@
   {
     "name": "Ivan Petrov",
     "grade": "T2",
-    "position": "Middle UI Engineer",
+    "position": "Staff UI Engineer",
     "skills": [
       {
         "name": "javascript",
@@ -34,7 +34,7 @@
   {
     "name": "Oleh Sokolov",
     "grade": "T1",
-    "position": "Trainee UI Engineer",
+    "position": "Junior UI Engineer",
     "skills": [
       {
         "name": "html",
@@ -74,7 +74,7 @@
   {
     "name": "Roman Ostap",
     "grade": "T3",
-    "position": "Senior UI Engineer",
+    "position": "Senior Software Engineer",
     "skills": [
       {
         "name": "javascript",
@@ -114,7 +114,7 @@
   {
     "name": "Ostap Bender",
     "grade": "T4",
-    "position": "Principal UI Engineer",
+    "position": "Principal Software Engineer",
     "skills": [
       {
         "name": "javascript",
