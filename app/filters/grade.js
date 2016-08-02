@@ -1,7 +1,5 @@
-import { testTags } from './index';
+import { getMatchPropertyFilter, FILTER_NAMES } from './index';
 
 export function gradeFilter() {
-    return (grades, target) => {
-        return !!(grades.indexOf(target.grade) + 1);
-    }
+    return getMatchPropertyFilter(FILTER_NAMES.GRADE);
 }
