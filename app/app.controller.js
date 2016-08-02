@@ -45,16 +45,13 @@ class AppController {
     removeTag(tag) {
         var index = this.tagsMap[tag.name].indexOf(tag.value);
 
-        if (index + 1) {
-            this.tagsMap[tag.name].splice(index, 1);
+        if (index == -1)
+            return;
 
-            if(!this.tagsMap[tag.name].length)
-                delete this.tagsMap[tag.name];
-        }
-    }
+        this.tagsMap[tag.name].splice(index, 1);
 
-    applyFilter(name, context){
-        return this.$filter(name.toLowerCase)(context.source, context.target);
+        if(!this.tagsMap[tag.name].length)
+            delete this.tagsMap[tag.name];
     }
 
     employeeFilter(employee) {

@@ -1,11 +1,16 @@
-import { testTags } from './index';
-
 export function skillsFilter() {
     return (skills, target) => {
-        return testTags(skills, value => {
-            return !!target.skills.find(skill => {
-                return skill.name === value;
+        let test = false;
+
+        for (let value of skills) {
+            test = !!target.skills.find(skill => {
+                return skill.name === value; //TODO: level
             });
-        });
+
+            if (!test)
+                return false;
+        }
+
+        return test;
     }
 }

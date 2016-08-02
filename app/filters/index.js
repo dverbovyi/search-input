@@ -8,16 +8,3 @@ export default function applyFilters(module) {
         .filter('location', locationFilter)
         .filter('grade', gradeFilter);
 }
-
-export function testTags(tags, compare) {
-    let test = false;
-
-    for (let value of tags) {
-        test = compare(value);
-
-        if (!test)
-            return false;
-    }
-
-    return test;
-}
