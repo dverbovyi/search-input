@@ -2,9 +2,12 @@ export function skillsFilter() {
     return (skills, target) => {
         let test = false;
 
-        for (let value of skills) {
+        for (let skillName in skills) {
+            if(!skills.hasOwnProperty(skillName))
+                continue;
+            let skillLevel = skills[skillName];
             test = !!target.skills.find(skill => {
-                return skill.name === value; //TODO: level
+                return skill.name === skillName && skill.level >= skillLevel;
             });
 
             if (!test)

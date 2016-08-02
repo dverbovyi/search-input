@@ -8,6 +8,20 @@ class AppController {
         this.keywords = [];
         this.tagsMap = {};
         this.showTags = false;
+        this.anySkills = false;
+
+        this.slider = {
+          value: 1,
+          options: {
+            showTicksValues: true,
+            floor: 1,
+            ceil: 5,
+            step: 1,
+            onChange: () => {
+              this.updateSearchQuery();
+            }
+          }
+        }
 
         this.initialize();
     }
@@ -34,15 +48,27 @@ class AppController {
     }
 
     addTag(tag) {
-        let entity = this.tagsMap[tag.name];
+        let type = tag.name === 'skills' ? {} : [];
+        this.tagsMap[tag.name] = this.tagsMap[tag.name] || type;
 
-        if (!entity)
-            entity = this.tagsMap[tag.name] = [];
+        if(tag.name === 'skills') {
+            this.tagsMap[tag.name][tag.value] = 1;
+        } else {
+            this.tagsMap[tag.name].push(tag.value);
+        }
 
-        this.tagsMap[tag.name].push(tag.value);
+        this.anySkills = Object.keys(this.tagsMap['skills']).length !== 0;
     }
 
     removeTag(tag) {
+      if(tag.name === "skills") {
+        delete this.tagsMap[tag.name][tag.value];
+        this.anySkills = Object.keys(this.tagsMap[tag.name]).length !== 0;
+
+        if(!Object.keys(this.tagsMap[tag.name]).length) {
+          delete this.tagsMap[tag.name];
+        }
+      } else {
         var index = this.tagsMap[tag.name].indexOf(tag.value);
 
         if (index == -1)
@@ -52,9 +78,12 @@ class AppController {
 
         if(!this.tagsMap[tag.name].length)
             delete this.tagsMap[tag.name];
+      }
+
     }
 
     employeeFilter(employee) {
+      console.log(arguments)
         let hasMatch = false;
 
         for(let key in this.tagsMap){
@@ -67,7 +96,7 @@ class AppController {
             hasMatch = this.$filter(filterName)(value, employee);
 
             if(!hasMatch)
-                break;     
+                break;
         }
 
         return hasMatch;
