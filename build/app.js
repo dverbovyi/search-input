@@ -161,7 +161,7 @@ _module.controller('AppController', _app2.default).service('SearchService', _sea
 
 (0, _filters2.default)(_module);
 
-},{"./app.controller":1,"./filters":4,"./search.service":7}],3:[function(require,module,exports){
+},{"./app.controller":1,"./filters":4,"./search.service":8}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -172,9 +172,7 @@ exports.gradeFilter = gradeFilter;
 var _index = require('./index');
 
 function gradeFilter() {
-    return function (grades, target) {
-        return !!(grades.indexOf(target.grade) + 1);
-    };
+    return (0, _index.getMatchPropertyFilter)(_index.FILTER_NAMES.GRADE);
 }
 
 },{"./index":4}],4:[function(require,module,exports){
@@ -183,7 +181,9 @@ function gradeFilter() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.FILTER_NAMES = undefined;
 exports.default = applyFilters;
+exports.getMatchPropertyFilter = getMatchPropertyFilter;
 
 var _skills = require('./skills');
 
@@ -191,11 +191,26 @@ var _location = require('./location');
 
 var _grade = require('./grade');
 
+var _position = require('./position');
+
 function applyFilters(module) {
-    module.filter('skills', _skills.skillsFilter).filter('location', _location.locationFilter).filter('grade', _grade.gradeFilter);
+    module.filter('skills', _skills.skillsFilter).filter('location', _location.locationFilter).filter('grade', _grade.gradeFilter).filter('position', _position.positionFilter);
 }
 
-},{"./grade":3,"./location":5,"./skills":6}],5:[function(require,module,exports){
+function getMatchPropertyFilter(prop) {
+    return function (tags, target) {
+        return !!(tags.indexOf(target[prop]) + 1);
+    };
+}
+
+var FILTER_NAMES = exports.FILTER_NAMES = {
+    LOCATION: 'location',
+    SKILLS: 'skills',
+    GRADE: 'grade',
+    POSITION: 'position'
+};
+
+},{"./grade":3,"./location":5,"./position":6,"./skills":7}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -206,12 +221,24 @@ exports.locationFilter = locationFilter;
 var _index = require('./index');
 
 function locationFilter() {
-    return function (locations, target) {
-        return !!(locations.indexOf(target.location) + 1);
-    };
+    return (0, _index.getMatchPropertyFilter)(_index.FILTER_NAMES.LOCATION);
 }
 
 },{"./index":4}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.positionFilter = positionFilter;
+
+var _index = require('./index');
+
+function positionFilter() {
+    return (0, _index.getMatchPropertyFilter)(_index.FILTER_NAMES.POSITION);
+}
+
+},{"./index":4}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -266,7 +293,7 @@ function skillsFilter() {
     };
 }
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
