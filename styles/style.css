@@ -143,17 +143,17 @@ tags-input  .tags .tag-item {
   max-width: 150px;
 }
 
-.tags .tag-item .tag.location {
+.tags .tag-item .tag.location, .tags .tag.location {
   background: -webkit-linear-gradient(top,#fdfff0 0,#f4ffcb 47%,#fffba1 100%);
   background: linear-gradient(to bottom,#fdfff0 0,#f4ffcb 47%,#fffba1 100%);
 }
 
-.tags .tag-item .tag.grade {
+.tags .tag-item .tag.grade, .tags .tag.grade {
   background: -webkit-linear-gradient(top,#fff0f0 0,#ffcbcb 47%,#ffa1a1 100%);
   background: linear-gradient(to bottom,#fff0f0 0,#ffcbcb 47%,#ffa1a1 100%);
 }
 
-.tags .tag-item .tag.position {
+.tags .tag-item .tag.position, .tags .tag.position {
   background: -webkit-linear-gradient(top,#f1fff0 0,#cfffcb 47%,#a1ffa7 100%);
   background: linear-gradient(to bottom,#f1fff0 0,#cfffcb 47%,#a1ffa7 100%);
 }

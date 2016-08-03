@@ -53,7 +53,7 @@
               ng-repeat="(key, values) in vm.fields">
               <span class="group-name">{{key}}:</span>
               <ul class="tags">
-                <li class="tag" ng-repeat="keyword in values">
+                <li class="tag" ng-class="key" ng-repeat="keyword in values">
                   <span>{{keyword}}</span>
                 </li>
               </ul>
