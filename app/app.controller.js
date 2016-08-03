@@ -57,7 +57,9 @@ class AppController {
             this.tagsMap[tag.name].push(tag.value);
         }
 
-        this.anySkills = Object.keys(this.tagsMap['skills']).length !== 0;
+        let skills = this.tagsMap['skills'];
+
+        this.anySkills = skills && Object.keys(skills).length !== 0;
     }
 
     removeTag(tag) {
@@ -83,7 +85,6 @@ class AppController {
     }
 
     employeeFilter(employee) {
-      console.log(arguments)
         let hasMatch = false;
 
         for(let key in this.tagsMap){
