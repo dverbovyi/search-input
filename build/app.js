@@ -94,11 +94,10 @@ var AppController = function () {
 
             if (tag.name === 'skills') {
                 this.tagsMap[tag.name][tag.value] = 1;
+                this.anySkills = !!Object.keys(this.tagsMap['skills']).length;
             } else {
                 this.tagsMap[tag.name].push(tag.value);
             }
-
-            this.anySkills = Object.keys(this.tagsMap['skills']).length !== 0;
         }
     }, {
         key: 'removeTag',
