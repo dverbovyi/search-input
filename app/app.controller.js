@@ -17,6 +17,28 @@ class AppController {
             floor: 1,
             ceil: 5,
             step: 1,
+            translate: function(value) {
+              let title;
+
+              switch(value) {
+                case 1:
+                  title = 'Novice';
+                  break;
+                case 2:
+                  title = 'Competent';
+                  break;
+                case 3:
+                  title = 'Advanced';
+                  break;
+                case 4:
+                  title = 'Master';
+                  break;
+                case 5:
+                  title = 'Expert';
+              }
+
+              return title;
+            },
             onChange: () => {
               this.updateSearchQuery();
             }
@@ -83,7 +105,6 @@ class AppController {
     }
 
     employeeFilter(employee) {
-      console.log(arguments)
         let hasMatch = false;
 
         for(let key in this.tagsMap){

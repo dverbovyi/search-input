@@ -33,7 +33,8 @@
           on-tag-removed="vm.updateSearchQuery()"
           add-from-autocomplete-only="true"
           replace-spaces-with-dashes="false"
-          min-length="1">
+          min-length="1"
+          template="tag-template">
             <auto-complete
               source="vm.autocomplete($query)"
               display-property="value"
@@ -52,7 +53,7 @@
               ng-repeat="(key, values) in vm.fields">
               <span class="group-name">{{key}}:</span>
               <ul class="tags">
-                <li class="tag-item" ng-repeat="keyword in values">
+                <li class="tag" ng-repeat="keyword in values">
                   <span>{{keyword}}</span>
                 </li>
               </ul>
@@ -89,7 +90,7 @@
                     <td>{{employee.location}}</td>
                     <td>
                       <ul class="skills-list tags">
-                        <li class="tag-item" ng-repeat="skill in employee.skills track by skill.name">{{skill.name}}</li>
+                        <li class="tag" title="{{skill.name}}" ng-repeat="skill in employee.skills track by skill.name">{{skill.name}}</li>
                       </ul>
                     </td>
                     <td>Macys</td>
@@ -136,6 +137,13 @@
   <script type="text/ng-template" id="autocomplete-tpl">
         <b>{{data.name}}:</b>
         <span ng-bind-html="$highlight($getDisplayText())"></span>
+  </script>
+
+  <script type="text/ng-template" id="tag-template">
+    <div class="tag" ng-class="data.name">
+      <span ng-bind="$getDisplayText()" class="ng-binding ng-scope"></span>
+      <a class="remove-button ng-binding ng-scope" ng-click="$removeTag()" ng-bind="::$$removeTagSymbol">×</a>
+    </div>
   </script>
 
   <script src="./build/app.js"></script>

@@ -1,174 +1,1238 @@
 [
   {
-    "name": "Petro Ivanov",
+    "location": "Saratov",
+    "skills": [
+      {
+        "level": 3,
+        "name": "Android SDK"
+      },
+      {
+        "level": 3,
+        "name": "Reactive"
+      },
+      {
+        "level": 2,
+        "name": "Jenkins"
+      },
+      {
+        "level": 1,
+        "name": "Artifactory"
+      }
+    ],
+    "position": "Staff Java Developer",
     "grade": "T2",
-    "position": "Staff UI Engineer",
-    "skills": [
-      {
-        "name": "javascript",
-        "level": 5
-      }
-    ],
-    "location": "Lviv"
+    "name": "Lori Molina"
   },
   {
-    "name": "Ivan Petrov",
-    "grade": "T2",
-    "position": "Staff UI Engineer",
+    "location": "Menlo Park",
     "skills": [
       {
-        "name": "javascript",
-        "level": 3
+        "level": 5,
+        "name": "Artifactory"
       },
       {
-        "name": "html",
-        "level": 3
+        "level": 1,
+        "name": "JDK Tools"
       },
       {
-        "name": "css",
-        "level": 3
+        "level": 1,
+        "name": "Algorithms & Data Structures"
+      },
+      {
+        "level": 3,
+        "name": "REST"
+      },
+      {
+        "level": 1,
+        "name": "Java"
       }
     ],
-    "location": "Lviv"
-  },
-  {
-    "name": "Oleh Sokolov",
-    "grade": "T1",
-    "position": "Junior UI Engineer",
-    "skills": [
-      {
-        "name": "html",
-        "level": 5
-      },
-      {
-        "name": "css",
-        "level": 4
-      }
-    ],
-    "location": "Kharkiv"
-  },
-  {
-    "name": "Oleh Alexeev",
-    "grade": "D2",
-    "position": "Project Manager",
-    "skills": [
-      {
-        "name": "budget",
-        "level": 5
-      },
-      {
-        "name": "agile",
-        "level": 4
-      },
-      {
-        "name": "time",
-        "level": 4
-      },
-      {
-        "name": "risk",
-        "level": 3
-      }
-    ],
-    "location": "Kharkiv"
-  },
-  {
-    "name": "Roman Ostap",
-    "grade": "T3",
-    "position": "Senior Software Engineer",
-    "skills": [
-      {
-        "name": "javascript",
-        "level": 4
-      },
-      {
-          "name": "grunt",
-          "level": 3
-      },
-      {
-        "name": "html5",
-        "level": 5
-      },
-      {
-        "name": "css",
-        "level": 4
-      },
-      {
-        "name": "css3",
-        "level": 4
-      },
-      {
-        "name": "angular",
-        "level": 4
-      },
-      {
-          "name": "es6",
-          "level": 4
-      },
-      {
-          "name": "typescript",
-          "level": 4
-      }
-    ],
-    "location": "Krakow"
-  },
-  {
-    "name": "Ostap Bender",
+    "position": "Principal Java Developer",
     "grade": "T4",
-    "position": "Principal Software Engineer",
+    "name": "Stacie Perry"
+  },
+  {
+    "location": "Saratov",
     "skills": [
       {
-        "name": "javascript",
-        "level": 3
+        "level": 5,
+        "name": "Stakeholder"
       },
       {
-          "name": "grunt",
-          "level": 3
+        "level": 4,
+        "name": "Risk Management"
       },
       {
-          "name": "gulp",
-          "level": 3
+        "level": 5,
+        "name": "Version One"
       },
       {
-        "name": "html",
-        "level": 5
-      },
-      {
-        "name": "html5",
-        "level": 5
-      },
-      {
-        "name": "css3",
-        "level": 4
-      },
-      {
-        "name": "css",
-        "level": 4
-      },
-      {
-        "name": "angular",
-        "level": 4
-      },
-      {
-          "name": "es6",
-          "level": 4
-      },
-      {
-          "name": "typescript",
-          "level": 4
-      },
-      {
-        "name": "java",
-        "level": 5
-      },
-      {
-        "name": "nodejs",
-        "level": 5
-      },
-      {
-        "name": "agile",
-        "level": 3
+        "level": 2,
+        "name": "Contract Management"
       }
     ],
-    "location": "Kharkiv"
+    "position": "Senior Delivery Manager",
+    "grade": "D2",
+    "name": "Mccoy Cardenas"
+  },
+  {
+    "location": "Saratov",
+    "skills": [
+      {
+        "level": 4,
+        "name": "Reactive"
+      },
+      {
+        "level": 4,
+        "name": "Spring"
+      },
+      {
+        "level": 3,
+        "name": "JDK Tools"
+      },
+      {
+        "level": 4,
+        "name": "Multithreading"
+      },
+      {
+        "level": 4,
+        "name": "Maven"
+      }
+    ],
+    "position": "Principal Java Developer",
+    "grade": "T4",
+    "name": "Denise Horton"
+  },
+  {
+    "location": "Saint-Petersburg",
+    "skills": [
+      {
+        "level": 5,
+        "name": "JIRA"
+      },
+      {
+        "level": 2,
+        "name": "Kanban"
+      },
+      {
+        "level": 5,
+        "name": "Agile"
+      },
+      {
+        "level": 3,
+        "name": "Contract Management"
+      },
+      {
+        "level": 4,
+        "name": "ATDD"
+      },
+      {
+        "level": 1,
+        "name": "Waterfall"
+      },
+      {
+        "level": 2,
+        "name": "People Managment"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Tamika Nash"
+  },
+  {
+    "location": "Lviv",
+    "skills": [
+      {
+        "level": 1,
+        "name": "Algorithms & Data Structures"
+      },
+      {
+        "level": 5,
+        "name": "Spring"
+      },
+      {
+        "level": 3,
+        "name": "JDK Tools"
+      },
+      {
+        "level": 1,
+        "name": "Jenkins"
+      },
+      {
+        "level": 5,
+        "name": "REST"
+      }
+    ],
+    "position": "Junior Java Developer",
+    "grade": "T1",
+    "name": "Kent Gould"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 2,
+        "name": "Agile"
+      },
+      {
+        "level": 5,
+        "name": "Stakeholder"
+      },
+      {
+        "level": 3,
+        "name": "ATDD"
+      },
+      {
+        "level": 3,
+        "name": "People Managment"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Roseann Cantrell"
+  },
+  {
+    "location": "Lviv",
+    "skills": [
+      {
+        "level": 2,
+        "name": "TypeScript"
+      },
+      {
+        "level": 2,
+        "name": "Grunt"
+      },
+      {
+        "level": 5,
+        "name": "SVG"
+      },
+      {
+        "level": 4,
+        "name": "Gulp"
+      },
+      {
+        "level": 4,
+        "name": "JSON"
+      },
+      {
+        "level": 5,
+        "name": "Photoshop"
+      }
+    ],
+    "position": "Junior UI Engineer",
+    "grade": "T1",
+    "name": "Ortiz Turner"
+  },
+  {
+    "location": "Saratov",
+    "skills": [
+      {
+        "level": 2,
+        "name": "REST"
+      },
+      {
+        "level": 5,
+        "name": "JDK Tools"
+      },
+      {
+        "level": 2,
+        "name": "Artifactory"
+      },
+      {
+        "level": 5,
+        "name": "Maven"
+      },
+      {
+        "level": 3,
+        "name": "Android SDK"
+      },
+      {
+        "level": 3,
+        "name": "Algorithms & Data Structures"
+      },
+      {
+        "level": 2,
+        "name": "Jenkins"
+      },
+      {
+        "level": 5,
+        "name": "Tomcat"
+      }
+    ],
+    "position": "Staff Java Developer",
+    "grade": "T2",
+    "name": "Jeanine Fischer"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 5,
+        "name": "Jenkins"
+      },
+      {
+        "level": 4,
+        "name": "Artifactory"
+      },
+      {
+        "level": 2,
+        "name": "Android SDK"
+      },
+      {
+        "level": 4,
+        "name": "Multithreading"
+      },
+      {
+        "level": 1,
+        "name": "Spring"
+      },
+      {
+        "level": 2,
+        "name": "Java"
+      }
+    ],
+    "position": "Staff Java Developer",
+    "grade": "T2",
+    "name": "Charlotte Booker"
+  },
+  {
+    "location": "Lviv",
+    "skills": [
+      {
+        "level": 4,
+        "name": "Artifactory"
+      },
+      {
+        "level": 2,
+        "name": "Algorithms & Data Structures"
+      },
+      {
+        "level": 2,
+        "name": "Tomcat"
+      },
+      {
+        "level": 5,
+        "name": "Java"
+      },
+      {
+        "level": 3,
+        "name": "REST"
+      },
+      {
+        "level": 1,
+        "name": "JDK Tools"
+      },
+      {
+        "level": 1,
+        "name": "Reactive"
+      }
+    ],
+    "position": "Principal Java Developer",
+    "grade": "T4",
+    "name": "Dominguez Harrell"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 5,
+        "name": "Android SDK"
+      },
+      {
+        "level": 2,
+        "name": "JDK Tools"
+      },
+      {
+        "level": 1,
+        "name": "Tomcat"
+      },
+      {
+        "level": 1,
+        "name": "Multithreading"
+      },
+      {
+        "level": 3,
+        "name": "Jenkins"
+      },
+      {
+        "level": 1,
+        "name": "Spring"
+      }
+    ],
+    "position": "Principal Java Developer",
+    "grade": "T4",
+    "name": "Henrietta Golden"
+  },
+  {
+    "location": "Lviv",
+    "skills": [
+      {
+        "level": 4,
+        "name": "Waterfall"
+      },
+      {
+        "level": 1,
+        "name": "Stakeholder"
+      },
+      {
+        "level": 3,
+        "name": "Risk Management"
+      },
+      {
+        "level": 3,
+        "name": "PMBOK"
+      },
+      {
+        "level": 4,
+        "name": "People Managment"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Compton Dunn"
+  },
+  {
+    "location": "Kharkiv",
+    "skills": [
+      {
+        "level": 2,
+        "name": "Artifactory"
+      },
+      {
+        "level": 1,
+        "name": "Jenkins"
+      },
+      {
+        "level": 2,
+        "name": "Spring"
+      },
+      {
+        "level": 1,
+        "name": "Reactive"
+      },
+      {
+        "level": 4,
+        "name": "Java"
+      },
+      {
+        "level": 5,
+        "name": "Algorithms & Data Structures"
+      }
+    ],
+    "position": "Principal Java Developer",
+    "grade": "T4",
+    "name": "Martin Sharpe"
+  },
+  {
+    "location": "Kharkiv",
+    "skills": [
+      {
+        "level": 4,
+        "name": "Jenkins"
+      },
+      {
+        "level": 3,
+        "name": "Algorithms & Data Structures"
+      },
+      {
+        "level": 3,
+        "name": "Android SDK"
+      },
+      {
+        "level": 5,
+        "name": "Reactive"
+      },
+      {
+        "level": 4,
+        "name": "Java"
+      }
+    ],
+    "position": "Senior Java Developer",
+    "grade": "T3",
+    "name": "Diana Wilder"
+  },
+  {
+    "location": "Kharkiv",
+    "skills": [
+      {
+        "level": 1,
+        "name": "Photoshop"
+      },
+      {
+        "level": 2,
+        "name": "JSON"
+      },
+      {
+        "level": 2,
+        "name": "REST"
+      },
+      {
+        "level": 5,
+        "name": "CSS3"
+      },
+      {
+        "level": 1,
+        "name": "JavaScript"
+      }
+    ],
+    "position": "Principal UI Engineer",
+    "grade": "T4",
+    "name": "Christa Nunez"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 1,
+        "name": "Artifactory"
+      },
+      {
+        "level": 5,
+        "name": "Android SDK"
+      },
+      {
+        "level": 1,
+        "name": "Tomcat"
+      },
+      {
+        "level": 2,
+        "name": "Reactive"
+      }
+    ],
+    "position": "Staff Java Developer",
+    "grade": "T2",
+    "name": "Kenya Sawyer"
+  },
+  {
+    "location": "Menlo Park",
+    "skills": [
+      {
+        "level": 5,
+        "name": "JSON"
+      },
+      {
+        "level": 3,
+        "name": "Bootstrap"
+      },
+      {
+        "level": 4,
+        "name": "Webpack"
+      },
+      {
+        "level": 5,
+        "name": "Gulp"
+      },
+      {
+        "level": 3,
+        "name": "Photoshop"
+      },
+      {
+        "level": 1,
+        "name": "REST"
+      },
+      {
+        "level": 4,
+        "name": "WebGL"
+      },
+      {
+        "level": 2,
+        "name": "Algorithms & Data Structures"
+      },
+      {
+        "level": 2,
+        "name": "Canvas"
+      }
+    ],
+    "position": "Staff UI Engineer",
+    "grade": "T2",
+    "name": "Avery Hess"
+  },
+  {
+    "location": "Kharkiv",
+    "skills": [
+      {
+        "level": 3,
+        "name": "JIRA"
+      },
+      {
+        "level": 2,
+        "name": "Risk Management"
+      },
+      {
+        "level": 5,
+        "name": "ATDD"
+      },
+      {
+        "level": 2,
+        "name": "Kanban"
+      },
+      {
+        "level": 4,
+        "name": "Administration"
+      },
+      {
+        "level": 2,
+        "name": "Waterfall"
+      },
+      {
+        "level": 4,
+        "name": "Version One"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Potts Jefferson"
+  },
+  {
+    "location": "Saratov",
+    "skills": [
+      {
+        "level": 4,
+        "name": "Bootstrap"
+      },
+      {
+        "level": 5,
+        "name": "Grunt"
+      },
+      {
+        "level": 2,
+        "name": "React"
+      },
+      {
+        "level": 1,
+        "name": "AngularJs"
+      },
+      {
+        "level": 2,
+        "name": "Webpack"
+      }
+    ],
+    "position": "Junior UI Engineer",
+    "grade": "T1",
+    "name": "Ellis Marquez"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 5,
+        "name": "Kanban"
+      },
+      {
+        "level": 4,
+        "name": "Contract Management"
+      },
+      {
+        "level": 5,
+        "name": "Risk Management"
+      },
+      {
+        "level": 3,
+        "name": "Version One"
+      },
+      {
+        "level": 5,
+        "name": "Waterfall"
+      },
+      {
+        "level": 2,
+        "name": "Stakeholder"
+      }
+    ],
+    "position": "Senior Delivery Manager",
+    "grade": "D2",
+    "name": "Rutledge Holman"
+  },
+  {
+    "location": "Saint-Petersburg",
+    "skills": [
+      {
+        "level": 2,
+        "name": "Version One"
+      },
+      {
+        "level": 1,
+        "name": "ATDD"
+      },
+      {
+        "level": 3,
+        "name": "Agile"
+      },
+      {
+        "level": 1,
+        "name": "Stakeholder"
+      },
+      {
+        "level": 4,
+        "name": "Risk Management"
+      },
+      {
+        "level": 4,
+        "name": "Kanban"
+      },
+      {
+        "level": 1,
+        "name": "Administration"
+      }
+    ],
+    "position": "Senior Delivery Manager",
+    "grade": "D2",
+    "name": "Shana Ramos"
+  },
+  {
+    "location": "Menlo Park",
+    "skills": [
+      {
+        "level": 5,
+        "name": "People Managment"
+      },
+      {
+        "level": 3,
+        "name": "Contract Management"
+      },
+      {
+        "level": 5,
+        "name": "Version One"
+      },
+      {
+        "level": 5,
+        "name": "Kanban"
+      },
+      {
+        "level": 1,
+        "name": "JIRA"
+      },
+      {
+        "level": 3,
+        "name": "Waterfall"
+      },
+      {
+        "level": 5,
+        "name": "Agile"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Roxanne Richmond"
+  },
+  {
+    "location": "Lviv",
+    "skills": [
+      {
+        "level": 3,
+        "name": "Administration"
+      },
+      {
+        "level": 4,
+        "name": "Stakeholder"
+      },
+      {
+        "level": 2,
+        "name": "Agile"
+      },
+      {
+        "level": 4,
+        "name": "Version One"
+      },
+      {
+        "level": 2,
+        "name": "Risk Management"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Agnes Gallagher"
+  },
+  {
+    "location": "Saint-Petersburg",
+    "skills": [
+      {
+        "level": 5,
+        "name": "SVG"
+      },
+      {
+        "level": 2,
+        "name": "Angular2"
+      },
+      {
+        "level": 2,
+        "name": "JSON"
+      },
+      {
+        "level": 3,
+        "name": "CSS3"
+      },
+      {
+        "level": 4,
+        "name": "WebGL"
+      }
+    ],
+    "position": "Staff UI Engineer",
+    "grade": "T2",
+    "name": "Ashley Parsons"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 1,
+        "name": "Algorithms & Data Structures"
+      },
+      {
+        "level": 2,
+        "name": "Webpack"
+      },
+      {
+        "level": 2,
+        "name": "SVG"
+      },
+      {
+        "level": 3,
+        "name": "HTML5"
+      },
+      {
+        "level": 2,
+        "name": "CSS3"
+      },
+      {
+        "level": 4,
+        "name": "AngularJs"
+      },
+      {
+        "level": 5,
+        "name": "TypeScript"
+      },
+      {
+        "level": 4,
+        "name": "Grunt"
+      }
+    ],
+    "position": "Principal UI Engineer",
+    "grade": "T4",
+    "name": "Sherrie Rich"
+  },
+  {
+    "location": "Kharkiv",
+    "skills": [
+      {
+        "level": 3,
+        "name": "JavaScript"
+      },
+      {
+        "level": 5,
+        "name": "Algorithms & Data Structures"
+      },
+      {
+        "level": 2,
+        "name": "SVG"
+      },
+      {
+        "level": 5,
+        "name": "CSS3"
+      },
+      {
+        "level": 4,
+        "name": "Grunt"
+      }
+    ],
+    "position": "Junior UI Engineer",
+    "grade": "T1",
+    "name": "Macdonald Kelly"
+  },
+  {
+    "location": "Kharkiv",
+    "skills": [
+      {
+        "level": 4,
+        "name": "Tomcat"
+      },
+      {
+        "level": 3,
+        "name": "Jenkins"
+      },
+      {
+        "level": 2,
+        "name": "JDK Tools"
+      },
+      {
+        "level": 1,
+        "name": "Artifactory"
+      },
+      {
+        "level": 2,
+        "name": "Algorithms & Data Structures"
+      },
+      {
+        "level": 2,
+        "name": "REST"
+      },
+      {
+        "level": 4,
+        "name": "Spring"
+      }
+    ],
+    "position": "Senior Java Developer",
+    "grade": "T3",
+    "name": "Kennedy Stafford"
+  },
+  {
+    "location": "Saratov",
+    "skills": [
+      {
+        "level": 3,
+        "name": "Administration"
+      },
+      {
+        "level": 1,
+        "name": "Agile"
+      },
+      {
+        "level": 2,
+        "name": "People Managment"
+      },
+      {
+        "level": 5,
+        "name": "Stakeholder"
+      },
+      {
+        "level": 1,
+        "name": "JIRA"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Elnora Dennis"
+  },
+  {
+    "location": "Saint-Petersburg",
+    "skills": [
+      {
+        "level": 4,
+        "name": "Grunt"
+      },
+      {
+        "level": 3,
+        "name": "SVG"
+      },
+      {
+        "level": 1,
+        "name": "HTML5"
+      },
+      {
+        "level": 5,
+        "name": "Bootstrap"
+      },
+      {
+        "level": 4,
+        "name": "CSS3"
+      },
+      {
+        "level": 4,
+        "name": "React"
+      },
+      {
+        "level": 2,
+        "name": "JavaScript"
+      },
+      {
+        "level": 4,
+        "name": "Canvas"
+      }
+    ],
+    "position": "Junior UI Engineer",
+    "grade": "T1",
+    "name": "Terrell Mcfarland"
+  },
+  {
+    "location": "Saint-Petersburg",
+    "skills": [
+      {
+        "level": 4,
+        "name": "Angular2"
+      },
+      {
+        "level": 5,
+        "name": "SVG"
+      },
+      {
+        "level": 1,
+        "name": "Gulp"
+      },
+      {
+        "level": 5,
+        "name": "JavaScript"
+      },
+      {
+        "level": 3,
+        "name": "AngularJs"
+      }
+    ],
+    "position": "Junior UI Engineer",
+    "grade": "T1",
+    "name": "Rachel Travis"
+  },
+  {
+    "location": "Lviv",
+    "skills": [
+      {
+        "level": 2,
+        "name": "Version One"
+      },
+      {
+        "level": 4,
+        "name": "ATDD"
+      },
+      {
+        "level": 5,
+        "name": "Contract Management"
+      },
+      {
+        "level": 3,
+        "name": "Administration"
+      },
+      {
+        "level": 5,
+        "name": "People Managment"
+      },
+      {
+        "level": 3,
+        "name": "PMBOK"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Louise Nichols"
+  },
+  {
+    "location": "Lviv",
+    "skills": [
+      {
+        "level": 2,
+        "name": "Jenkins"
+      },
+      {
+        "level": 3,
+        "name": "JDK Tools"
+      },
+      {
+        "level": 1,
+        "name": "Multithreading"
+      }
+    ],
+    "position": "Principal Java Developer",
+    "grade": "T4",
+    "name": "Salas Solis"
+  },
+  {
+    "location": "Kharkiv",
+    "skills": [
+      {
+        "level": 5,
+        "name": "Angular2"
+      },
+      {
+        "level": 3,
+        "name": "Webpack"
+      },
+      {
+        "level": 5,
+        "name": "HTML5"
+      },
+      {
+        "level": 4,
+        "name": "SVG"
+      }
+    ],
+    "position": "Junior UI Engineer",
+    "grade": "T1",
+    "name": "Merle Mason"
+  },
+  {
+    "location": "Saint-Petersburg",
+    "skills": [
+      {
+        "level": 2,
+        "name": "ATDD"
+      },
+      {
+        "level": 2,
+        "name": "Administration"
+      },
+      {
+        "level": 2,
+        "name": "Version One"
+      },
+      {
+        "level": 2,
+        "name": "PMBOK"
+      },
+      {
+        "level": 1,
+        "name": "Risk Management"
+      },
+      {
+        "level": 2,
+        "name": "People Managment"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Collins Berger"
+  },
+  {
+    "location": "Lviv",
+    "skills": [
+      {
+        "level": 2,
+        "name": "PMBOK"
+      },
+      {
+        "level": 4,
+        "name": "JIRA"
+      },
+      {
+        "level": 3,
+        "name": "People Managment"
+      },
+      {
+        "level": 1,
+        "name": "Agile"
+      },
+      {
+        "level": 1,
+        "name": "Version One"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Rhoda Dorsey"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 3,
+        "name": "Agile"
+      },
+      {
+        "level": 3,
+        "name": "Administration"
+      },
+      {
+        "level": 4,
+        "name": "Version One"
+      },
+      {
+        "level": 1,
+        "name": "Waterfall"
+      },
+      {
+        "level": 1,
+        "name": "PMBOK"
+      },
+      {
+        "level": 4,
+        "name": "Stakeholder"
+      },
+      {
+        "level": 4,
+        "name": "JIRA"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Lilia Townsend"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 2,
+        "name": "Photoshop"
+      },
+      {
+        "level": 2,
+        "name": "WebGL"
+      },
+      {
+        "level": 1,
+        "name": "React"
+      },
+      {
+        "level": 1,
+        "name": "NodeJs"
+      },
+      {
+        "level": 4,
+        "name": "Webpack"
+      },
+      {
+        "level": 3,
+        "name": "REST"
+      },
+      {
+        "level": 1,
+        "name": "CSS3"
+      },
+      {
+        "level": 1,
+        "name": "JSON"
+      }
+    ],
+    "position": "Staff UI Engineer",
+    "grade": "T2",
+    "name": "Morin Wade"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 2,
+        "name": "Kanban"
+      },
+      {
+        "level": 5,
+        "name": "Stakeholder"
+      },
+      {
+        "level": 2,
+        "name": "ATDD"
+      },
+      {
+        "level": 5,
+        "name": "JIRA"
+      }
+    ],
+    "position": "Senior Delivery Manager",
+    "grade": "D2",
+    "name": "Christy Edwards"
+  },
+  {
+    "location": "Krakow",
+    "skills": [
+      {
+        "level": 5,
+        "name": "Contract Management"
+      },
+      {
+        "level": 2,
+        "name": "Agile"
+      },
+      {
+        "level": 2,
+        "name": "ATDD"
+      },
+      {
+        "level": 4,
+        "name": "Risk Management"
+      },
+      {
+        "level": 1,
+        "name": "Stakeholder"
+      }
+    ],
+    "position": "Delivery Manager",
+    "grade": "D1",
+    "name": "Mai Martinez"
   }
 ]
