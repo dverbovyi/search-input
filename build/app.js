@@ -32,6 +32,28 @@ var AppController = function () {
                 floor: 1,
                 ceil: 5,
                 step: 1,
+                translate: function translate(value) {
+                    var title = void 0;
+
+                    switch (value) {
+                        case 1:
+                            title = 'Novice';
+                            break;
+                        case 2:
+                            title = 'Competent';
+                            break;
+                        case 3:
+                            title = 'Advanced';
+                            break;
+                        case 4:
+                            title = 'Master';
+                            break;
+                        case 5:
+                            title = 'Expert';
+                    }
+
+                    return title;
+                },
                 onChange: function onChange() {
                     _this.updateSearchQuery();
                 }
@@ -72,11 +94,10 @@ var AppController = function () {
 
             if (tag.name === 'skills') {
                 this.tagsMap[tag.name][tag.value] = 1;
+                this.anySkills = !!Object.keys(this.tagsMap['skills']).length;
             } else {
                 this.tagsMap[tag.name].push(tag.value);
             }
-
-            this.anySkills = Object.keys(this.tagsMap['skills']).length !== 0;
         }
     }, {
         key: 'removeTag',
@@ -101,7 +122,6 @@ var AppController = function () {
     }, {
         key: 'employeeFilter',
         value: function employeeFilter(employee) {
-            console.log(arguments);
             var hasMatch = false;
 
             for (var key in this.tagsMap) {

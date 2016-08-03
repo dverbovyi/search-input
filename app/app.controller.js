@@ -78,7 +78,7 @@ class AppController {
             this.anySkills = !!Object.keys(this.tagsMap['skills']).length;
         } else {
             this.tagsMap[tag.name].push(tag.value);
-        }
+        } 
     }
 
     removeTag(tag) {
