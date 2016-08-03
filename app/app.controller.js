@@ -17,6 +17,28 @@ class AppController {
             floor: 1,
             ceil: 5,
             step: 1,
+            translate: function(value) {
+              let title;
+
+              switch(value) {
+                case 1:
+                  title = 'Novice';
+                  break;
+                case 2:
+                  title = 'Competent';
+                  break;
+                case 3:
+                  title = 'Advanced';
+                  break;
+                case 4:
+                  title = 'Master';
+                  break;
+                case 5:
+                  title = 'Expert';
+              }
+
+              return title;
+            },
             onChange: () => {
               this.updateSearchQuery();
             }
@@ -53,11 +75,10 @@ class AppController {
 
         if(tag.name === 'skills') {
             this.tagsMap[tag.name][tag.value] = 1;
+            this.anySkills = !!Object.keys(this.tagsMap['skills']).length;
         } else {
             this.tagsMap[tag.name].push(tag.value);
         }
-
-        this.anySkills = Object.keys(this.tagsMap['skills']).length !== 0;
     }
 
     removeTag(tag) {
@@ -83,7 +104,6 @@ class AppController {
     }
 
     employeeFilter(employee) {
-      console.log(arguments)
         let hasMatch = false;
 
         for(let key in this.tagsMap){
