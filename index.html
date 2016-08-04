@@ -22,46 +22,59 @@
 <body ng-controller="AppController as vm">
   <div class="container">
       <div class="page-header">
-        <h1>Awesome input</h1>
-        <tags-input
-          placeholder="Type here..."
-          ng-model="vm.selected"
-          display-property="value"
-          on-tag-adding="vm.addTag($tag)"
-          on-tag-removing="vm.removeTag($tag)"
-          on-tag-added="vm.updateSearchQuery()"
-          on-tag-removed="vm.updateSearchQuery()"
-          add-from-autocomplete-only="true"
-          replace-spaces-with-dashes="false"
-          min-length="1"
-          template="tag-template">
-            <auto-complete
-              source="vm.autocomplete($query)"
-              display-property="value"
-              min-length="1"
-              max-results-to-show="100"
-              template="autocomplete-tpl"
-              load-on-empty="false"
-              load-on-focus="false">
-            </auto-complete>
-        </tags-input>
-        <h5>
-        <a ng-click="vm.displayTags()" href="javascript:void(0);">Supported fields:</a>
-        </h5>
-        <ul ng-show="vm.showTags" class="fields-list">
-          <li ng-if="vm.isSupportedFilter(key)"
-              ng-repeat="(key, values) in vm.fields">
-              <span class="group-name">{{key}}:</span>
-              <ul class="tags">
-                <li class="tag" ng-class="key" ng-repeat="keyword in values">
-                  <span>{{keyword}}</span>
-                </li>
-              </ul>
-          </li>
-        </ul>
+          <h1>Awesome input</h1>
+          <tags-input
+            placeholder="Type here..."
+            ng-model="vm.selected"
+            display-property="value"
+            on-tag-adding="vm.addTag($tag)"
+            on-tag-removing="vm.removeTag($tag)"
+            on-tag-added="vm.updateSearchQuery()"
+            on-tag-removed="vm.updateSearchQuery()"
+            add-from-autocomplete-only="true"
+            replace-spaces-with-dashes="false"
+            min-length="1"
+            template="tag-template">
+              <auto-complete
+                source="vm.autocomplete($query)"
+                display-property="value"
+                min-length="1"
+                max-results-to-show="100"
+                template="autocomplete-tpl"
+                load-on-empty="false"
+                load-on-focus="false">
+              </auto-complete>
+          </tags-input>
+          <div ng-if="vm.showSkillsSettings">
+            <h4>Filter by skills level:</h4>
+            <div class="form-group" ng-repeat="(skill, skillLevel) in vm.tagStorage.records.skills track by $index">
+              <h5>
+                {{skill}} level:
+              </h5>
+              <rzslider
+                rz-slider-model="vm.tagStorage.records.skills[skill]"
+                rz-slider-options="vm.sliderConfig"
+                ></rzslider>
+            </div>
+          </div>
+          <div class="row">
+            <h5>
+              <a ng-click="vm.displayTags()" href="javascript:void(0);">Supported fields:</a>
+            </h5>
+            <ul ng-show="vm.showTags" class="fields-list">
+              <li ng-if="vm.isSupportedFilter(key)"
+                  ng-repeat="(key, values) in vm.fields">
+                  <span class="group-name">{{key}}:</span>
+                  <ul class="tags">
+                    <li class="tag" ng-class="key" ng-repeat="keyword in values">
+                      <span>{{keyword}}</span>
+                    </li>
+                  </ul>
+              </li>
+            </ul>
+          </div>
       </div>
       <div class="row">
-        <div class="col-md-8">
           <div ng-if="vm.matchedPeople.length" >
             <h4>Matched employees:</h4>
             <div class="table-responsive">
@@ -102,21 +115,6 @@
           <div ng-if="vm.isResultNotFound()">
             <h4 class="not-found">The employees have not been found</h4>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div ng-if="vm.showSkillsSettings">
-            <h4>Filter by skills level:</h4>
-            <div class="form-group" ng-repeat="(skill, skillLevel) in vm.tagStorage.records.skills track by $index">
-              <h5>
-                {{skill}} level:
-              </h5>
-              <rzslider
-                rz-slider-model="vm.tagStorage.records.skills[skill]"
-                rz-slider-options="vm.sliderConfig"
-                ></rzslider>
-            </div>
-          </div>
-        </div>
       </div>
 
   </div>
