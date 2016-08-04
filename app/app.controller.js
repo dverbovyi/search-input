@@ -1,49 +1,22 @@
+import { getCompetenceTitleByLevel } from './filters';
+import sliderConfig from './slider.config';
+import TagStorage from './tags.storage';
+
 class AppController {
-    constructor($http, $filter, $timeout, SearchService) {
+    constructor($http, $filter, SearchService) {
         this.$http = $http;
         this.$filter = $filter;
-        this.$timeout = $timeout;
         this.searchService = SearchService;
+        this.tagStorage = new TagStorage();
         this.selected = [];
         this.keywords = [];
-        this.tagsMap = {};
         this.showTags = false;
         this.anySkills = false;
 
-        this.slider = {
-          value: 1,
-          options: {
-            showTicksValues: true,
-            floor: 1,
-            ceil: 5,
-            step: 1,
-            translate: function(value) {
-              let title;
-
-              switch(value) {
-                case 1:
-                  title = 'Novice';
-                  break;
-                case 2:
-                  title = 'Competent';
-                  break;
-                case 3:
-                  title = 'Advanced';
-                  break;
-                case 4:
-                  title = 'Master';
-                  break;
-                case 5:
-                  title = 'Expert';
-              }
-
-              return title;
-            },
-            onChange: () => {
-              this.updateSearchQuery();
-            }
-          }
-        }
+        this.sliderConfig = angular.merge(sliderConfig, {
+            translate: getCompetenceTitleByLevel,
+            onChange: this.updateSearchQuery.bind(this)
+        });
 
         this.initialize();
     }
@@ -55,70 +28,46 @@ class AppController {
         this.searchService.getKeywords()
             .then(response => {
                 this.fields = response.data;
-                for (var key in this.fields) {
-                    if (!this.fields.hasOwnProperty(key))
-                        continue;
+                this.prepareKeyWords();
+            });
+    }
 
-                    this.fields[key].forEach(element => {
-                        this.keywords.push({
-                            name: key,
-                            value: element
-                        });
-                    });
-                }
-            })
+    prepareKeyWords() {
+        for (var key in this.fields) {
+            if (!this.fields.hasOwnProperty(key))
+                continue;
+
+            this.fields[key].forEach(element => {
+                this.keywords.push({
+                    name: key,
+                    value: element
+                });
+            });
+        }
     }
 
     addTag(tag) {
-        let type = tag.name === 'skills' ? {} : [];
-        this.tagsMap[tag.name] = this.tagsMap[tag.name] || type;
-
-        if(tag.name === 'skills') {
-            this.tagsMap[tag.name][tag.value] = 1;
-        } else {
-            this.tagsMap[tag.name].push(tag.value);
-        }
-
-        let skills = this.tagsMap['skills'];
-
-        this.anySkills = skills && Object.keys(skills).length !== 0;
+        this.tagStorage.add(tag);
     }
 
     removeTag(tag) {
-      if(tag.name === "skills") {
-        delete this.tagsMap[tag.name][tag.value];
-        this.anySkills = Object.keys(this.tagsMap[tag.name]).length !== 0;
-
-        if(!Object.keys(this.tagsMap[tag.name]).length) {
-          delete this.tagsMap[tag.name];
-        }
-      } else {
-        var index = this.tagsMap[tag.name].indexOf(tag.value);
-
-        if (index == -1)
-            return;
-
-        this.tagsMap[tag.name].splice(index, 1);
-
-        if(!this.tagsMap[tag.name].length)
-            delete this.tagsMap[tag.name];
-      }
-
+        this.tagStorage.remove(tag);
     }
 
     employeeFilter(employee) {
-        let hasMatch = false;
+        let hasMatch = false,
+            tags = this.tagStorage.records;
 
-        for(let key in this.tagsMap){
-            if(!this.tagsMap.hasOwnProperty(key))
+        for (let key in tags) {
+            if (!tags.hasOwnProperty(key))
                 continue;
 
             let filterName = key.toLowerCase(),
-                value = this.tagsMap[key];
+                value = tags[key];
 
             hasMatch = this.$filter(filterName)(value, employee);
 
-            if(!hasMatch)
+            if (!hasMatch)
                 break;
         }
 
@@ -129,12 +78,14 @@ class AppController {
         let _employees = angular.copy(this.employees);
 
         this.matchedPeople = _employees.filter(this.employeeFilter.bind(this));
+
+        this.displaySkillsSetting();
     }
 
     autocomplete(query) {
         let _keywords = angular.copy(this.keywords);
 
-        if (query === '') {
+        if (!query) {
             return _keywords;
         }
 
@@ -143,27 +94,32 @@ class AppController {
         });
     }
 
-    displayTags(){
+    displayTags() {
         this.showTags = !this.showTags;
     }
 
-    isSupportedFilter(filterName){
+    isSupportedFilter(filterName) {
         let support = true;
 
         try {
             this.$filter(filterName);
-        } catch(e) {
+        } catch (e) {
             support = false;
         }
 
         return support;
     }
 
-    isResultNotFound(){
-        return Object.keys(this.tagsMap).length && this.matchedPeople && !this.matchedPeople.length;
+    isResultNotFound() {
+        return this.tagStorage.isEmpty() && this.matchedPeople && !this.matchedPeople.length;
+    }
+
+    displaySkillsSetting(){
+        let records = this.tagStorage.records;
+        this.showSkillsSettings = records.skills && Object.keys(records.skills).length;
     }
 }
 
-AppController.$inject = ['$http', '$filter', '$timeout', 'SearchService'];
+AppController.$inject = ['$http', '$filter', 'SearchService'];
 
 export default AppController;

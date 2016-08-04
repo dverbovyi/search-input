@@ -104,21 +104,16 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div ng-if="vm.anySkills">
+          <div ng-if="vm.showSkillsSettings">
             <h4>Filter by skills level:</h4>
-            <div class="form-group" ng-repeat="(skill, skillLevel) in vm.tagsMap.skills track by $index">
+            <div class="form-group" ng-repeat="(skill, skillLevel) in vm.tagStorage.records.skills track by $index">
               <h5>
                 {{skill}} level:
               </h5>
               <rzslider
-                rz-slider-model="vm.tagsMap.skills[skill]"
-                rz-slider-options="vm.slider.options"
+                rz-slider-model="vm.tagStorage.records.skills[skill]"
+                rz-slider-options="vm.sliderConfig"
                 ></rzslider>
-              <!-- <label class="radio-inline" ng-repeat="level in vm.skillLevels track by $index">
-                <input name="{{skill}}" ng-model="vm.tagsMap.skills[skill]" ng-change="vm.updateSearchQuery()" type="radio" ng-value="level">{{level}}
-
-              </label> -->
-
             </div>
           </div>
         </div>

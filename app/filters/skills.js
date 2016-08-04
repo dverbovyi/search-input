@@ -1,6 +1,5 @@
 export function skillsFilter() {
     return (skills, target) => {
-        console.log(skills)
         let test = false;
 
         for (let skillName in skills) {
