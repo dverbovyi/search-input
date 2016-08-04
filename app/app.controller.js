@@ -36,7 +36,7 @@ class AppController {
         for (var key in this.fields) {
             if (!this.fields.hasOwnProperty(key))
                 continue;
-
+                
             this.fields[key].forEach(element => {
                 this.keywords.push({
                     name: key,
